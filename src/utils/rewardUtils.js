@@ -1,0 +1,23 @@
+export const calculatePoints = (amount) => {
+  let points = 0;
+  if (amount > 100) {
+    points += (amount - 100) * 2;
+    points += 50;
+  } else if (amount > 50) {
+    points += amount - 50;
+  }
+  return Math.floor(points);
+};
+
+export const groupTransactionsByMonth = (transactions) => {
+  const grouped = {};
+  transactions.forEach(txn => {
+    const date = new Date(txn.date);
+    const year = date.getFullYear();
+    const month = date.toLocaleString('default', { month: 'short' });
+    const key = `${month}-${year}`;
+    if (!grouped[key]) grouped[key] = [];
+    grouped[key].push(txn);
+  });
+  return grouped;
+};

@@ -1,70 +1,107 @@
-# Getting Started with Create React App
+# Customer Rewards Points Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a ReactJS-based application simulating a **Retailer Rewards Program** where customers earn reward points based on their purchases. It calculates and displays reward points per transaction, per month, and total points for each customer.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Project Overview
 
-### `npm start`
+A customer receives:
+-  **2 points** for every dollar spent **over $100** in each transaction.
+-  **1 point** for every dollar spent **between $50 and $100**.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Example:
+For a $120 transaction:
+- 2 x ($120 - $100) = 40 points
+- 1 x ($100 - $50) = 50 points  
+→ **Total = 90 points**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ✅ Features Implemented
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 🔍 **Customer List**: Displays all customers with basic details.
+- 👤 **Customer Selection**: Shows:
+  - Monthly reward points
+  - Total reward points
+- 📅 **Month & Year Filters**:
+  - Select from **Jan - Dec**
+  - Select years from **2021 to 2025** (default 2025)
+  - Defaults to last 3 months
+- 📜 **Transaction View**: For selected customer & month, see all transactions and reward points per transaction.
+- 🔁 **Pagination**: Implemented for handling large customer/transaction datasets.
+- 🧪 **Unit Testing**: Positive and negative cases for:
+  - Whole & fractional transaction values
+  - Edge reward calculations
+- ⚙️ **API Simulation**:
+  - Async mock API using local `JSON` file (`/public/transactions.json`)
+  - Loading and error handling included
+- 🧾 **Logging**:
+  - Integrated `pino` logger to send logs to [Parseable](https://demo.parseable.io/)
+- 🧱 **Clean Architecture**:
+  - Functional components
+  - PropTypes validation
+  - Dynamic data handling via `props` and `state`
+- 🎨 **Styling**:
+  - Basic styling via `styled-components`
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🗃️ Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## 🔧 Features
+- Shows reward points earned per customer
+- Month and year filters (last 3 months default)
+- Transaction view per month
+- Simulated async API using local JSON
+- Pagination-ready structure
+- Logging using console.log/debug
+- Styled with Styled Components
+- Unit tested with Jest and React Testing Library
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📦 Setup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm install
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🧪 Run Tests
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm run test
+```
 
-## Learn More
+## 📁 Folder Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+src/
+├── components/ # UI Components
+├── api/ # Simulated API calls
+├── utils/ # Utilities and helper functions
+├── constants/ # Static text, month names, etc.
+├── tests/ # Unit test cases
+├── logger/ # Logging setup with pino
+├── App.js
+└── index.js
+public/
+└── transactions.json # Mock data for customers & transactions
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## ✅ Screenshots
+- Initial loading 
+![alt text](image-7.png)
+- Working screenshot of app
+![alt text](image.png)
+- When selected a particular customer
+![alt text](image-1.png)
+- When clicked on View Button in Rewards Summary 
+![alt text](image-2.png)
+- Pagination to handle large data
+![alt text](image-3.png)
+- No Transaction found for a parituclar date
+![alt text](image-4.png)
+- Loggers added using pino getting error sometimes due to api inconsistency
+![alt text](image-5.png)
+- Success screenshot from test runner
+![alt text](image-6.png)

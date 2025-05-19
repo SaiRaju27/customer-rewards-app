@@ -4,7 +4,7 @@ import CustomerList from "./components/CustomerList";
 import CustomerDetails from "./components/CustomerDetails";
 import TransactionList from "./components/TransactionList";
 import { Container } from "./styles/styledComponents";
-import { MONTHS } from "./constants/rewardConstants";
+import { CUSTOMER_HEADING, LOADING, MONTHS } from "./constants/rewardConstants";
 import logger from "./loggers";
 logger.info("test log! pinotest stream from reactjs application.");
 
@@ -42,10 +42,10 @@ function App() {
 
   return (
     <Container>
-      <h2>Customer Rewards Points Tracker</h2>
+      <h2>{CUSTOMER_HEADING}</h2>
 
       {loading ? (
-        <p>Loading transactions...</p>
+        <p>{LOADING}</p>
       ) : error ? (
         <p>{error}</p>
       ) : (

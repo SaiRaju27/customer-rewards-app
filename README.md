@@ -99,7 +99,7 @@ public/
 ![alt text](image-2.png)
 - Pagination to handle large data
 ![alt text](image-3.png)
-- No Transaction found for a parituclar date
+- No Transaction found for a paritcular date
 ![alt text](image-4.png)
 - Loggers added using pino getting error sometimes due to api inconsistency
 ![alt text](image-5.png)
